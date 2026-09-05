@@ -1,4 +1,51 @@
-<!DOCTYPE html><!--A0reKX_Cfif8M7FGT_wYz--><html lang="en" class="__variable_cbfe6b __variable_83ac02 __variable_039602"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="fonts/22b8c064351cc089-s.p.ttf" as="font" crossorigin="" type="font/ttf"><link rel="preload" href="fonts/25b90cf9a1b05db3-s.p.woff2" as="font" crossorigin="" type="font/woff2"><link rel="preload" href="fonts/64a85eba1842775d-s.p.ttf" as="font" crossorigin="" type="font/ttf"><link rel="preload" href="fonts/87609f26e9e34002-s.p.ttf" as="font" crossorigin="" type="font/ttf"><link rel="preload" href="fonts/af196e3be3706933-s.p.ttf" as="font" crossorigin="" type="font/ttf"><link rel="preload" href="fonts/d589a554d6b47d7b-s.p.woff2" as="font" crossorigin="" type="font/woff2"><link rel="preload" as="image" href="images/loader.svg"><link rel="preload" as="image" href="images/logo_banner.svg" fetchpriority="high"><link rel="preload" as="image" href="images/img_3Dshape.webp"><link rel="preload" as="image" href="images/text-each-in-sync.svg"><link rel="preload" as="image" href="images/logo_footer.svg"><link rel="stylesheet" href="css/e9237da4e6ba7c5c.css" data-precedence="next"><link rel="preload" as="script" fetchpriority="low" href="js/webpack-87d0cb8d1b0c982f.js"><script src="js/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="js/255-e73b62bcf31f91a3.js" async=""></script><script src="js/main-app-f9b5d20365cb8be2.js" async=""></script><script src="js/715-a2f11bc67d37f106.js" async=""></script><script src="js/457-2aeb475346d4df69.js" async=""></script><script src="js/layout-90cce43fae960be2.js" async=""></script><script src="js/260-1d522b59b68ede09.js" async=""></script><script src="js/page-4c72895a0875c10b.js" async=""></script><link rel="preload" href="concrete_shape.glb" as="fetch" crossorigin="anonymous"><link rel="preload" href="js/draco_wasm_wrapper.js" as="fetch" crossorigin="anonymous"><link rel="preload" href="draco_decoder.wasm" as="fetch" crossorigin="anonymous"><meta name="next-size-adjust" content=""><title>PSMcodes — Web, App &amp; Digital Engineering | Vasai-Virar, Mumbai</title>
+<!DOCTYPE html><!--A0reKX_Cfif8M7FGT_wYz--><html lang="en" class="__variable_cbfe6b __variable_83ac02 __variable_039602"><head><script>
+(function() {
+  var p = window.location.pathname;
+  if (p.indexOf('/psmcodes-website') === 0) {
+    var base = '/psmcodes-website';
+    var origFetch = window.fetch;
+    window.fetch = function(input, init) {
+      if (typeof input === 'string' && input.charAt(0) === '/' && input.indexOf(base + '/') !== 0) {
+        input = base + input;
+      } else if (input && typeof input.url === 'string' && input.url.charAt(0) === '/' && input.url.indexOf(base + '/') !== 0) {
+        input = new Request(base + input.url, input);
+      }
+      return origFetch.call(this, input, init);
+    };
+    function patchProp(proto, prop) {
+      var desc = Object.getOwnPropertyDescriptor(proto, prop);
+      if (desc && desc.set) {
+        var origSet = desc.set;
+        Object.defineProperty(proto, prop, {
+          set: function(val) {
+            if (typeof val === 'string' && val.charAt(0) === '/' && val.indexOf(base + '/') !== 0) {
+              val = base + val;
+            }
+            return origSet.call(this, val);
+          },
+          get: desc.get,
+          configurable: true,
+          enumerable: true
+        });
+      }
+    }
+    patchProp(HTMLMediaElement.prototype, 'src');
+    patchProp(HTMLImageElement.prototype, 'src');
+    var origCreateElement = document.createElement;
+    document.createElement = function(tag, opts) {
+      var el = origCreateElement.call(document, tag, opts);
+      var origSetAttr = el.setAttribute;
+      el.setAttribute = function(attr, val) {
+        if ((attr === 'src' || attr === 'href') && typeof val === 'string' && val.charAt(0) === '/' && val.indexOf(base + '/') !== 0) {
+          val = base + val;
+        }
+        return origSetAttr.call(this, attr, val);
+      };
+      return el;
+    };
+  }
+})();
+</script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="fonts/22b8c064351cc089-s.p.ttf" as="font" crossorigin="" type="font/ttf"><link rel="preload" href="fonts/25b90cf9a1b05db3-s.p.woff2" as="font" crossorigin="" type="font/woff2"><link rel="preload" href="fonts/64a85eba1842775d-s.p.ttf" as="font" crossorigin="" type="font/ttf"><link rel="preload" href="fonts/87609f26e9e34002-s.p.ttf" as="font" crossorigin="" type="font/ttf"><link rel="preload" href="fonts/af196e3be3706933-s.p.ttf" as="font" crossorigin="" type="font/ttf"><link rel="preload" href="fonts/d589a554d6b47d7b-s.p.woff2" as="font" crossorigin="" type="font/woff2"><link rel="preload" as="image" href="images/loader.svg"><link rel="preload" as="image" href="images/logo_banner.svg" fetchpriority="high"><link rel="preload" as="image" href="images/img_3Dshape.webp"><link rel="preload" as="image" href="images/text-each-in-sync.svg"><link rel="preload" as="image" href="images/logo_footer.svg"><link rel="stylesheet" href="css/e9237da4e6ba7c5c.css" data-precedence="next"><link rel="preload" as="script" fetchpriority="low" href="js/webpack-87d0cb8d1b0c982f.js"><script src="js/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="js/255-e73b62bcf31f91a3.js" async=""></script><script src="js/main-app-f9b5d20365cb8be2.js" async=""></script><script src="js/715-a2f11bc67d37f106.js" async=""></script><script src="js/457-2aeb475346d4df69.js" async=""></script><script src="js/layout-90cce43fae960be2.js" async=""></script><script src="js/260-1d522b59b68ede09.js" async=""></script><script src="js/page-4c72895a0875c10b.js" async=""></script><link rel="preload" href="concrete_shape.glb" as="fetch" crossorigin="anonymous"><link rel="preload" href="js/draco_wasm_wrapper.js" as="fetch" crossorigin="anonymous"><link rel="preload" href="draco_decoder.wasm" as="fetch" crossorigin="anonymous"><meta name="next-size-adjust" content=""><title>PSMcodes — Web, App &amp; Digital Engineering | Vasai-Virar, Mumbai</title>
 <meta name="description" content="PSMcodes is a premier digital engineering &amp; development in Vasai-Virar and Mumbai, India. We architect high-performance websites, custom iOS/Android mobile apps, and scalable digital solutions that drive real growth.">
 <meta name="keywords" content="PSMcodes, web agency in vasai virar, web development virar, app development mumbai, website design vasai, digital marketing virar, full stack agency india, nextjs react developers, mobile app development">
 <meta name="author" content="PSMcodes">
