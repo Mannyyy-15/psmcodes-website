@@ -1,0 +1,16 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(mp4|webm)",
+      "headers": [
+        { "key": "Accept-Ranges", "value": "bytes" }
+      ]
+    }
+  ]
+}
