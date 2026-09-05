@@ -1,0 +1,17 @@
+<svg width="1400" height="207" viewBox="0 0 1400 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800;900&amp;family=Space+Grotesk:wght@700&amp;display=swap');
+      .brand-main {
+        font-family: 'Plus Jakarta Sans', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 900;
+        font-size: 210px;
+        letter-spacing: -2px;
+        fill: #000000;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+  <!-- Symmetrically centered PSMCODES across the 1400px canvas with no studio tag -->
+  <text x="700" y="164" class="brand-main">PSMCODES</text>
+</svg>

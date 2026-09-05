@@ -1,0 +1,14 @@
+{
+  "name": "psmcodes",
+  "version": "1.0.0",
+  "description": "PSMcodes Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "py-start": "python server.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

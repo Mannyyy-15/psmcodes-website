@@ -1,0 +1,17 @@
+{
+  "name": "PSMcodes — Strategic Web & App Engineering Studio",
+  "short_name": "PSMcodes",
+  "description": "Leading web development, mobile app engineering, and digital solutions studio in Vasai-Virar & Mumbai.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eeece9",
+  "theme_color": "#0009F2",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
