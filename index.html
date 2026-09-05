@@ -4,15 +4,27 @@
   if (p.indexOf('/psmcodes-website') === 0) {
     var base = '/psmcodes-website';
     var origFetch = window.fetch;
-    window.fetch = function(input, init) {
-      if (typeof input === 'string' && input.charAt(0) === '/' && input.indexOf(base + '/') !== 0) {
-        input = base + input;
-      } else if (input && typeof input.url === 'string' && input.url.charAt(0) === '/' && input.url.indexOf(base + '/') !== 0) {
-        input = new Request(base + input.url, input);
-      }
-      return origFetch.call(this, input, init);
-    };
+    if (origFetch) {
+      window.fetch = function(input, init) {
+        if (typeof input === 'string' && input.charAt(0) === '/' && input.indexOf(base + '/') !== 0) {
+          input = base + input;
+        } else if (input && typeof input.url === 'string' && input.url.charAt(0) === '/' && input.url.indexOf(base + '/') !== 0) {
+          input = new Request(base + input.url, input);
+        }
+        return origFetch.call(this, input, init);
+      };
+    }
+    if (window.XMLHttpRequest) {
+      var origOpen = XMLHttpRequest.prototype.open;
+      XMLHttpRequest.prototype.open = function(method, url) {
+        if (typeof url === 'string' && url.charAt(0) === '/' && url.indexOf(base + '/') !== 0) {
+          url = base + url;
+        }
+        return origOpen.apply(this, arguments);
+      };
+    }
     function patchProp(proto, prop) {
+      if (!proto) return;
       var desc = Object.getOwnPropertyDescriptor(proto, prop);
       if (desc && desc.set) {
         var origSet = desc.set;
@@ -29,8 +41,10 @@
         });
       }
     }
+    patchProp(HTMLScriptElement.prototype, 'src');
     patchProp(HTMLMediaElement.prototype, 'src');
     patchProp(HTMLImageElement.prototype, 'src');
+    patchProp(HTMLSourceElement.prototype, 'src');
     var origCreateElement = document.createElement;
     document.createElement = function(tag, opts) {
       var el = origCreateElement.call(document, tag, opts);
